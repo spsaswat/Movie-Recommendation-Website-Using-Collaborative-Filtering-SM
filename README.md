@@ -10,10 +10,30 @@ Also new users can rate the movies available and their responses will further co
 
 ### Tools and Technologies used
      
-     <ul>
+<ul>
      <li>Django Framework</li>
      <li>HTML5</li>
      <li>CSS</li>
      <li>Bootstrap</li>
      <li>SQLite3</li>
-     </ul>
+</ul>
+
+### Quick Start Guide
+
+Clone the repository
+
+```bash
+# Change Directory
+$ cd Moviely
+
+# Create Virtual Environment(LINUX)
+$ virtualenv venv
+$ source venv/bin/activate
+
+# Migrate database files
+$ python manage.py migrate
+
+# launch ...
+$ python manage.py runserver
+
+```
