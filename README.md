@@ -1,4 +1,4 @@
-# Movie-Recommendation-Website-By-Saswat-And-Mridu
+# Movie-Recommendation-Website-Using-Collaborative-Filtering
 
 
 Building a Movie Recommendation System web application using Django framework and Recommendation technique called Collaborative Filtering
