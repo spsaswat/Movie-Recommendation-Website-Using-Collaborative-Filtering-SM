@@ -30,6 +30,9 @@ $ cd Moviely
 $ virtualenv venv
 $ source venv/bin/activate
 
+# Install dependencies
+$ pip install requirements.txt
+
 # Migrate database files
 $ python manage.py migrate
 
