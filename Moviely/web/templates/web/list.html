@@ -1,0 +1,97 @@
+{% extends 'web/base.html'%}
+{% block body %}
+<br>
+<div class="container">
+    <div class="row">
+        {% if request.user.is_authenticated %}
+    <div class="col-xs-offset-9  mt-3 mr-auto">
+        <a type="button" class="btn btn-warning btn-sm" id="rec" href="{% url 'recommend' %}" ><strong><h2 style="font-size: large;">Get Recommendation</h2></strong></a>
+    </div>
+    {% endif %}
+    <div class="col-xs-6 col-xs-offset-3 col-lg-5 ml-auto">
+        <!-- <br> -->
+        <p></p>
+    	<form class="form-horizontal" role="search" method="get" action=''>
+         <div class="form-group">
+         <div class="input-group">
+            <input type="text" class="form-control input-lg " name="q" value="{{ request.GET.q }}" placeholder= "Search movie by name "/>
+            
+            <span class='input-group-btn'>
+             <button class='btn btn-outline-secondary btn-md' id="search" type='submit'>Search
+             </button>
+         </span>
+        </div>
+     </div>
+   </form>
+
+ </div>
+</div>
+</div>  
+    {% if messages %}
+            <!-- <ul class="messages"> -->
+            {% for message in messages %}
+            <div class="container alert alert-success" role="alert">
+                {{message}}
+              </div>
+                <!-- <li{% if message.tags %} class="{{ message.tags }}"{% endif %} >{{ message }}</li> -->
+            {% endfor %}
+            <!-- </ul> -->
+    {% endif %}
+    <!-- <div class="container">
+    <div class="row">
+        <div class="col-sm-2 col-md-3">
+		<h1>Movies List</h1>
+        </div>
+        <div class="col-xs-offset-9  mt-3 ml-auto">
+        <a type="button" class="btn btn-warning" href="{% url 'recommend' %}" class="btn"><strong><h2>Get Recommendation</h2></strong></a>
+        </div>
+    </div>
+    </div><br><br> -->
+    <br>
+    <br>
+	<div class="container-fluid" style="padding-left: 100px; padding-right: 8rem;">
+        <h1 class="text-center">Movies List</h1>
+    <!-- Movie list -->
+    <hr>
+    <div class="row">
+            {% if movies %}
+            {% for movie in movies %}
+                <!-- <div class="col-sm-6 col-md-4 col-lg-3"> -->
+                    <div class="shadow card" style="width: 15rem; margin: 1rem; padding: 0px;">
+                        <a href="{% url 'detail' movie.id %}">
+                            <img src="{{ movie.movie_logo.url}}" class="card-img-top">
+                        </a>
+                        <!-- <img src="{{ movie.movie_logo.url}}" class="card-img-top" alt="..."> -->
+                        <div class="card-body">
+                          <h5 class="card-title">{{movie.title}}</h5>
+                          <p class="card-text">{{movie.genre}}</p>
+                          <a href="{% url 'detail' movie.id %}" class="btn btn-primary">View Details</a>
+                        </div>
+                      </div>
+                      <br>
+                    <!-- <div class="">
+                        <h5>{{movie.title}}</h4>
+                        <a href="{% url 'detail' movie.id %}">
+                            <img src="{{ movie.movie_logo.url}}" class="img-responsive">
+                        </a>
+                        <h4>Genre: </h4><p>{{movie.genre}}</p><br>
+                        <div class="caption">
+
+                            
+                            <a href="{% url 'detail' movie.id %}" class="btn btn-primary btn-sm" role="button">Give Rating</a>
+
+                                        
+                        </div>
+                        <br>
+                        
+                    </div> -->
+                    
+                <!-- </div> -->
+                {% endfor %}
+                {% endif %}
+    </div>
+    
+    
+</div>
+
+{% endblock %}

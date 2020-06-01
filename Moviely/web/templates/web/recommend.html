@@ -1,0 +1,51 @@
+{% extends 'web/base.html'%}
+{% block title %}Recommendations{% endblock %}
+{% block body %}
+
+
+<div class="container my-auto py-3">
+	<h2>Recommendations for You </h2>
+</div>
+
+
+	<div class="container">
+    
+    <!-- Movie list -->
+    <div class="row">
+            {% if movie_list %}
+            {% for movie in movie_list %}
+                <!-- <div class="col-sm-2 col-md-2 ">
+                    <div class="thumbnail">
+                        <h4>{{movie.title}}</h4>
+                        <a href="{% url 'detail' movie.id %}">
+                            <img src="{{ movie.movie_logo.url}}" class="img-responsive">
+                        </a>
+                        <h5>{{movie.genre}}</h5>
+                        <div class="caption">
+
+                            
+                            <a href="{% url 'detail' movie.id %}" class="btn btn-primary btn-sm" role="button">Give Rating</a>
+
+                                        
+                        </div>
+                    </div>
+                </div> -->
+                <div class="shadow card" style="width: 17rem; margin: 0.1rem; padding: 0px; margin-bottom: 2rem;">
+                    <a href="{% url 'detail' movie.id %}">
+                        <img src="{{ movie.movie_logo.url}}" class="card-img-top">
+                    </a>
+                    <!-- <img src="{{ movie.movie_logo.url}}" class="card-img-top" alt="..."> -->
+                    <div class="card-body">
+                      <h5 class="card-title">{{movie.title}}</h5>
+                      <p class="card-text">{{movie.genre}}</p>
+                      <a href="{% url 'detail' movie.id %}" class="btn btn-primary">View Details</a>
+                    </div>
+                  </div>
+                  <br>
+                {% endfor %}
+                {% endif %}
+        </div>
+    
+</div>
+
+{% endblock %}

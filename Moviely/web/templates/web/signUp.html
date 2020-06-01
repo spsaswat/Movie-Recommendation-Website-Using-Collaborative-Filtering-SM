@@ -1,0 +1,31 @@
+{% extends 'web/base.html'%}
+{% block title %}Register{% endblock %}
+{% block body %}
+
+    <div class="container">
+        
+        <div class="jumbotron col-md-6 mx-auto mt-3">
+            
+                    <h3>Register for an Account</h3>
+                    {% if error %}
+            <div class="container alert alert-danger" role="alert">
+                {{ error }}
+              </div>
+              {% endif %}
+              <br>
+              
+                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% include 'web/form_template.html' %}
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-success btn-lg">Register</button>
+                            </div>
+                        </div>
+                    </form>
+                    Already have an account? <a href="{% url 'login' %}">Click here</a> to log in.
+    </div>
+
+</div>
+
+{% endblock %}
